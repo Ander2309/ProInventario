@@ -17,19 +17,33 @@ namespace ProInventario
 
         }
 
-        private void AbrirFormulario(IconMenuItem menu , Form formulario)
+        private void AbrirFormulario(IconMenuItem menu, Form formulario)
         {
-            if(MenuActivo != null)
+            if (MenuActivo != null)
             {
                 MenuActivo.BackColor = Color.White;
             }
 
             menu.BackColor = Color.Silver;
             MenuActivo = menu;
+
+            if (FormularioActivo != null)
+            {
+                FormularioActivo.Close();
+            }
+
+            FormularioActivo = formulario;
+            formulario.TopLevel = false;
+            formulario.FormBorderStyle = FormBorderStyle.None;
+            formulario.Dock = DockStyle.Fill;
+            formulario.BackColor = Color.SteelBlue;
+
+            Contenedor.Controls.Add(formulario);
+            formulario.Show();
         }
         private void MenuInventario_Click(object sender, EventArgs e)
         {
-
+            AbrirFormulario((IconMenuItem)sender, new frmInventario());
         }
     }
 }
