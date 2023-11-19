@@ -48,13 +48,6 @@
             BTNEditar = new FontAwesome.Sharp.IconButton();
             BTNEliminar = new FontAwesome.Sharp.IconButton();
             dataGridView1 = new DataGridView();
-            btnseleccionar = new DataGridViewButtonColumn();
-            CodProducto = new DataGridViewTextBoxColumn();
-            NombreProcducto = new DataGridViewTextBoxColumn();
-            Descripcion = new DataGridViewTextBoxColumn();
-            Precio = new DataGridViewTextBoxColumn();
-            Stock = new DataGridViewTextBoxColumn();
-            Categoria = new DataGridViewTextBoxColumn();
             label8 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -208,6 +201,7 @@
             COMBXCategoria.Name = "COMBXCategoria";
             COMBXCategoria.Size = new Size(199, 23);
             COMBXCategoria.TabIndex = 13;
+            COMBXCategoria.SelectedIndexChanged += COMBXCategoria_SelectedIndexChanged;
             // 
             // BTNGuardar
             // 
@@ -285,7 +279,6 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { btnseleccionar, CodProducto, NombreProcducto, Descripcion, Precio, Stock, Categoria });
             dataGridView1.Location = new Point(282, 131);
             dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
@@ -294,51 +287,8 @@
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.RowTemplate.Height = 28;
-            dataGridView1.Size = new Size(672, 351);
+            dataGridView1.Size = new Size(727, 351);
             dataGridView1.TabIndex = 17;
-            // 
-            // btnseleccionar
-            // 
-            btnseleccionar.HeaderText = "";
-            btnseleccionar.Name = "btnseleccionar";
-            btnseleccionar.ReadOnly = true;
-            btnseleccionar.Width = 30;
-            // 
-            // CodProducto
-            // 
-            CodProducto.HeaderText = "Codigo";
-            CodProducto.Name = "CodProducto";
-            CodProducto.ReadOnly = true;
-            // 
-            // NombreProcducto
-            // 
-            NombreProcducto.HeaderText = "Producto";
-            NombreProcducto.Name = "NombreProcducto";
-            NombreProcducto.ReadOnly = true;
-            // 
-            // Descripcion
-            // 
-            Descripcion.HeaderText = "Descripcion";
-            Descripcion.Name = "Descripcion";
-            Descripcion.ReadOnly = true;
-            // 
-            // Precio
-            // 
-            Precio.HeaderText = "Precio";
-            Precio.Name = "Precio";
-            Precio.ReadOnly = true;
-            // 
-            // Stock
-            // 
-            Stock.HeaderText = "Stock";
-            Stock.Name = "Stock";
-            Stock.ReadOnly = true;
-            // 
-            // Categoria
-            // 
-            Categoria.HeaderText = "Categoria";
-            Categoria.Name = "Categoria";
-            Categoria.ReadOnly = true;
             // 
             // label8
             // 
@@ -356,7 +306,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
-            ClientSize = new Size(979, 523);
+            ClientSize = new Size(1021, 523);
             Controls.Add(label8);
             Controls.Add(dataGridView1);
             Controls.Add(BTNEliminar);
@@ -378,6 +328,7 @@
             Controls.Add(PanelIzq);
             Name = "frmInventario";
             Text = "frmInventario";
+            Load += frmInventario_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -403,12 +354,5 @@
         private FontAwesome.Sharp.IconButton BTNEliminar;
         private DataGridView dataGridView1;
         private Label label8;
-        private DataGridViewButtonColumn btnseleccionar;
-        private DataGridViewTextBoxColumn CodProducto;
-        private DataGridViewTextBoxColumn NombreProcducto;
-        private DataGridViewTextBoxColumn Descripcion;
-        private DataGridViewTextBoxColumn Precio;
-        private DataGridViewTextBoxColumn Stock;
-        private DataGridViewTextBoxColumn Categoria;
     }
 }

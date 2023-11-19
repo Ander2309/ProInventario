@@ -44,7 +44,7 @@
             menu.Items.AddRange(new ToolStripItem[] { MenuInventario, MenuReportes, MenuUsuarios });
             menu.Location = new Point(0, 48);
             menu.Name = "menu";
-            menu.Size = new Size(984, 73);
+            menu.Size = new Size(1044, 73);
             menu.TabIndex = 0;
             menu.Text = "menuStrip1";
             // 
@@ -96,7 +96,7 @@
             menuTitulo.Location = new Point(0, 0);
             menuTitulo.Name = "menuTitulo";
             menuTitulo.RightToLeft = RightToLeft.Yes;
-            menuTitulo.Size = new Size(984, 48);
+            menuTitulo.Size = new Size(1044, 48);
             menuTitulo.TabIndex = 1;
             menuTitulo.Text = "menuStrip1";
             menuTitulo.ItemClicked += menuTitulo_ItemClicked;
@@ -114,14 +114,14 @@
             Contenedor.Dock = DockStyle.Fill;
             Contenedor.Location = new Point(0, 121);
             Contenedor.Name = "Contenedor";
-            Contenedor.Size = new Size(984, 583);
+            Contenedor.Size = new Size(1044, 583);
             Contenedor.TabIndex = 2;
             // 
             // Inicio
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(984, 704);
+            ClientSize = new Size(1044, 704);
             Controls.Add(Contenedor);
             Controls.Add(menu);
             Controls.Add(menuTitulo);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace ProInventario.Contexto;
 
@@ -17,9 +18,10 @@ public partial class Producto
 
     public int? CategoriaId { get; set; }
 
+    [Browsable(false)]
     public virtual Categoria? Categoria { get; set; }
-
+    [Browsable(false)]
     public virtual ICollection<DetallesInventario> DetallesInventarios { get; set; } = new List<DetallesInventario>();
-
+    [Browsable(false)]
     public virtual ICollection<DetallesReporte> DetallesReportes { get; set; } = new List<DetallesReporte>();
 }
