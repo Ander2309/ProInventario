@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            FontAwesome.Sharp.IconButton BTNBuscar;
+            FontAwesome.Sharp.IconButton BTNReset;
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label1 = new Label();
@@ -49,8 +51,43 @@
             BTNEliminar = new FontAwesome.Sharp.IconButton();
             dataGridView1 = new DataGridView();
             label8 = new Label();
+            TXTBuscar = new TextBox();
+            BTNBuscar = new FontAwesome.Sharp.IconButton();
+            BTNReset = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
+            // 
+            // BTNBuscar
+            // 
+            BTNBuscar.BackColor = Color.SteelBlue;
+            BTNBuscar.FlatAppearance.BorderColor = Color.Black;
+            BTNBuscar.FlatStyle = FlatStyle.Flat;
+            BTNBuscar.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            BTNBuscar.IconColor = Color.White;
+            BTNBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            BTNBuscar.IconSize = 30;
+            BTNBuscar.Location = new Point(867, 40);
+            BTNBuscar.Name = "BTNBuscar";
+            BTNBuscar.Size = new Size(38, 26);
+            BTNBuscar.TabIndex = 20;
+            BTNBuscar.UseVisualStyleBackColor = false;
+            BTNBuscar.Click += iconButton1_Click_1;
+            // 
+            // BTNReset
+            // 
+            BTNReset.BackColor = Color.SteelBlue;
+            BTNReset.FlatAppearance.BorderColor = Color.Black;
+            BTNReset.FlatStyle = FlatStyle.Flat;
+            BTNReset.IconChar = FontAwesome.Sharp.IconChar.Retweet;
+            BTNReset.IconColor = Color.White;
+            BTNReset.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            BTNReset.IconSize = 30;
+            BTNReset.Location = new Point(911, 40);
+            BTNReset.Name = "BTNReset";
+            BTNReset.Size = new Size(38, 26);
+            BTNReset.TabIndex = 21;
+            BTNReset.UseVisualStyleBackColor = false;
+            BTNReset.Click += BTNReset_Click;
             // 
             // label1
             // 
@@ -289,6 +326,8 @@
             dataGridView1.RowTemplate.Height = 28;
             dataGridView1.Size = new Size(727, 351);
             dataGridView1.TabIndex = 17;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            dataGridView1.Click += dataGridView1_Click;
             // 
             // label8
             // 
@@ -297,9 +336,18 @@
             label8.ForeColor = Color.Black;
             label8.Location = new Point(282, 32);
             label8.Name = "label8";
-            label8.Size = new Size(653, 31);
+            label8.Size = new Size(713, 44);
             label8.TabIndex = 18;
             label8.Text = "Lista de productos";
+            label8.Click += label8_Click;
+            // 
+            // TXTBuscar
+            // 
+            TXTBuscar.Location = new Point(715, 43);
+            TXTBuscar.Name = "TXTBuscar";
+            TXTBuscar.Size = new Size(146, 23);
+            TXTBuscar.TabIndex = 19;
+            TXTBuscar.TextChanged += textBox1_TextChanged;
             // 
             // frmInventario
             // 
@@ -307,6 +355,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
             ClientSize = new Size(1021, 523);
+            Controls.Add(BTNReset);
+            Controls.Add(BTNBuscar);
+            Controls.Add(TXTBuscar);
             Controls.Add(label8);
             Controls.Add(dataGridView1);
             Controls.Add(BTNEliminar);
@@ -329,6 +380,7 @@
             Name = "frmInventario";
             Text = "frmInventario";
             Load += frmInventario_Load;
+            Click += frmInventario_Click;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -354,5 +406,6 @@
         private FontAwesome.Sharp.IconButton BTNEliminar;
         private DataGridView dataGridView1;
         private Label label8;
+        private TextBox TXTBuscar;
     }
 }

@@ -44,14 +44,23 @@ namespace ProInventario
             a.CategoriaId = Convert.ToInt32(COMBXCategoria.SelectedValue);
 
             _Contexto.Add(a);
-            _Contexto.SaveChanges();
+            if (_Contexto.SaveChanges() == 1)
+            {
+                MessageBox.Show(this, "Editado con exitoo", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            else
+            {
+                MessageBox.Show(this, "Error", "Prueba otra ves", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = _Contexto.Productos.ToList();
 
             Limpiar();
         }
 
-         private void Limpiar()
+        private void Limpiar()
         {
             TXTCodProducto.Text = "";
             TXTNombreProducto.Text = "";
@@ -73,23 +82,41 @@ namespace ProInventario
             proModificar.CategoriaId = Convert.ToInt32(COMBXCategoria.SelectedValue);
 
             _Contexto.Productos.Update(proModificar);
-            _Contexto.SaveChanges();
+            if (_Contexto.SaveChanges() == 1)
+            {
+                MessageBox.Show(this, "Editado con exitoo", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            }
+            else
+            {
+                MessageBox.Show(this, "Error", "Prueba otra ves", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            Limpiar();
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = _Contexto.Productos.ToList();
         }
 
         private void iconButton3_Click(object sender, EventArgs e)
         {
-            int Codigo = int.Parse(TXTCodProducto.Text);
+            if (MessageBox.Show(this, "Seguro que quieres eliminar este reggistro??", "Confirmacion de eliminacion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                int Codigo = int.Parse(TXTCodProducto.Text);
+                var proModificar = _Contexto.Productos.FirstOrDefault(p => p.ProductoId == Codigo);
 
-            var proModificar = _Contexto.Productos.FirstOrDefault(p => p.ProductoId == Codigo);
+                _Contexto.Productos.Remove(proModificar);
+                _Contexto.SaveChanges();
+                MessageBox.Show(this, "Borrado con exitoo", " ", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            _Contexto.Productos.Remove(proModificar);
-            _Contexto.SaveChanges();
+                Limpiar();
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = _Contexto.Productos.ToList();
 
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = _Contexto.Productos.ToList();
+            }
+            else
+            {
+                MessageBox.Show(this, "Error", "Prueba otra ves", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void COMBXCategoria_SelectedIndexChanged(object sender, EventArgs e)
@@ -115,6 +142,51 @@ namespace ProInventario
         private void frmInventario_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = _Contexto.Productos.ToList();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iconButton1_Click_1(object sender, EventArgs e)
+        {
+            var filtro = TXTBuscar.Text;
+            var resultado = _Contexto.Productos.Where(B => B.ProductoId.ToString() == filtro || B.Nombre.ToLower().Contains(filtro)).ToList();
+
+            dataGridView1.DataSource = resultado;
+        }
+
+        private void BTNReset_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = _Contexto.Productos.ToList();
+            TXTBuscar.Text = "";
+            Limpiar();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        }
+
+        private void frmInventario_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_Click(object sender, EventArgs e)
+        {
+            this.TXTCodProducto.Text = dataGridView1.SelectedCells[0].Value.ToString();
+            this.TXTNombreProducto.Text = dataGridView1.SelectedCells[1].Value.ToString();
+            this.TXTDescripcion.Text = dataGridView1.SelectedCells[2].Value.ToString();
+            this.TXTPrecio.Text = dataGridView1.SelectedCells[3].Value.ToString();
+            this.TxtStock.Text = dataGridView1.SelectedCells[4].Value.ToString();
+            this.COMBXCategoria.Text = dataGridView1.SelectedCells[5].Value.ToString();
         }
     }
 }
