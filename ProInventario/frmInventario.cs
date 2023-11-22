@@ -171,7 +171,7 @@ namespace ProInventario
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+
         }
 
         private void frmInventario_Click(object sender, EventArgs e)
@@ -187,6 +187,48 @@ namespace ProInventario
             this.TXTPrecio.Text = dataGridView1.SelectedCells[3].Value.ToString();
             this.TxtStock.Text = dataGridView1.SelectedCells[4].Value.ToString();
             this.COMBXCategoria.Text = dataGridView1.SelectedCells[5].Value.ToString();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TXTCodProducto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TXTNombreProducto_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void TXTDescripcion_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void TXTPrecio_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void TxtStock_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
         }
     }
 }

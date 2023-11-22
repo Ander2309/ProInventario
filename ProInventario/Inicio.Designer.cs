@@ -65,7 +65,7 @@
             // MenuReportes
             // 
             MenuReportes.AutoSize = false;
-            MenuReportes.IconChar = FontAwesome.Sharp.IconChar.ListCheck;
+            MenuReportes.IconChar = FontAwesome.Sharp.IconChar.Tools;
             MenuReportes.IconColor = Color.Black;
             MenuReportes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             MenuReportes.IconSize = 50;
@@ -87,6 +87,7 @@
             MenuUsuarios.Size = new Size(80, 69);
             MenuUsuarios.Text = "Usuarios";
             MenuUsuarios.TextImageRelation = TextImageRelation.ImageAboveText;
+            MenuUsuarios.Click += MenuUsuarios_Click;
             // 
             // menuTitulo
             // 

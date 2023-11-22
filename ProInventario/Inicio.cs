@@ -45,5 +45,10 @@ namespace ProInventario
         {
             AbrirFormulario((IconMenuItem)sender, new frmInventario());
         }
+
+        private void MenuUsuarios_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)sender, new frmUsuario());
+        }
     }
 }
