@@ -72,8 +72,9 @@
             MenuReportes.ImageScaling = ToolStripItemImageScaling.None;
             MenuReportes.Name = "MenuReportes";
             MenuReportes.Size = new Size(122, 69);
-            MenuReportes.Text = "Reportes";
+            MenuReportes.Text = "Mantenimiento";
             MenuReportes.TextImageRelation = TextImageRelation.ImageAboveText;
+            MenuReportes.Click += MenuReportes_Click;
             // 
             // MenuUsuarios
             // 
